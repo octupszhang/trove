@@ -1043,9 +1043,6 @@ class Instance(BuiltInstance):
                       self.configuration.id)
             flavor = self.get_flavor()
             config_id = self.configuration.id
-            LOG.debug("Configuration being unassigned; "
-                      "Marking restart required.")
-            self.update_db(task_status=InstanceTasks.RESTART_REQUIRED)
             task_api.API(self.context).unassign_configuration(self.id,
                                                               flavor,
                                                               config_id)
